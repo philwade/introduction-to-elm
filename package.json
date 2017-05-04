@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "cleaver slides.md",
+    "watch": "cleaver watch slides.md"
+  },
+  "dependencies": {
+    "cleaver": "^0.8.4"
+  }
+}
