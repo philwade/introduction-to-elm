@@ -57,8 +57,30 @@ controls: true
 
 --
 
-### Syntax
+### Basic Values
+
+    word : String
+	word = "hello pizza"
+
+	count : number
+	count = 42
+
+	items : List String
+	items = ["car", "boat", "horse"]
 
 --
 
+### More things
+
+	tuple
+
+	record
+
+	function
+
+--
+
+### Deconstruction and pattern matching
+
+--
 ### The Elm Architecture

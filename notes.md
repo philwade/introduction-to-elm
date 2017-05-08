@@ -20,3 +20,8 @@ declaractive, react like
 virtual dom
 shared state - redux, flux
 static typing and referential transparency makes refactoring what you've written easy
+even if you don't plan on writing it, it's relevant to react, redux and what's happening in the ui dev world
+
+
+## basics
+let's talk through some of the syntax concepts first
