@@ -91,6 +91,7 @@ want to list a bunch of emoji and let voting happen on them
 	- update display, then show actions
 	- update update
 	- write emoji decrement / increment
+- if time, refactor increment / decrement
 
 ## examples
 https://learningmusic.ableton.com

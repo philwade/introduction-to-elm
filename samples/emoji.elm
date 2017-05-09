@@ -26,18 +26,17 @@ update msg model =
         Decrement value -> decrement value model
 
 increment : String -> Model -> Model
-increment value emojis = List.map (\emoji ->
-                            if emoji.value == value then
-                                { emoji | count = emoji.count + 1 }
-                            else
-                                emoji) emojis
+increment value emojis = List.map (match ((+) 1) value) emojis
 
 decrement : String -> Model -> Model
-decrement value emojis = List.map (\emoji ->
-                            if emoji.value == value then
-                                { emoji | count = emoji.count - 1 }
-                            else
-                                emoji) emojis
+decrement value emojis = List.map (match (\x -> x - 1) value) emojis
+
+match : (Int -> Int) -> String -> Emoji -> Emoji
+match modifier value emoji =
+    if emoji.value == value then
+        { emoji | count = modifier emoji.count }
+    else
+        emoji
 -- VIEW
 
 view : Model -> Html Msg
