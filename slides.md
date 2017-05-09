@@ -76,6 +76,8 @@ controls: true
 	betterCoords : Coordinates
 	betterCoords = { x = 10, y = 15 }
 
+	moreCoords = Coordinates 10 15
+
 	updatedCoords = { betterCoords | x = 15 }
 
 --
@@ -98,6 +100,19 @@ controls: true
 		_ -> "I don't know"
 --
 ### Deconstruction and pattern matching
+   pair : (Boolean, Boolean)
+   pair = (True, False)
+
+   or : (Boolean, Boolean) -> Boolean
+   or pair =
+   		case pair of
+			(True, True) -> True
+			(True, _) -> True
+			(_, True) -> True
+			(_, _) -> False
+
+	person = { name = "Joe", age = 50 }
+	isAdult { age } = age > 18
 
 --
 ### The Elm Architecture
@@ -105,4 +120,6 @@ controls: true
 * Opinionated
 
 --
-### Hello World
+### Demo time!
+
+![demo](images/demo.gif)

@@ -1,5 +1,6 @@
 # What is it
 like react or angular, V in MVC
+if you've used redux, it follows the store/action/reactive pattern (came from elm)
 haskell/ml like syntax, not quite haskell (type classes)
 currently 0.18, used by a couple smaller companies as part of their code base
 
@@ -49,8 +50,47 @@ case should also be familiar, but we need to match *every* value
 underscore for values we don't really care about
 
 ## deconstruction and pattern matching
+make declarative programming easier
+similar to es6 deconstruction
 
 ## the elm architecture
 elm was designed with the purpose of building single pages app, strives to do that well
 has a set architecture that it wants you to use
 design philosophy is that everything is well thought out, doesn't want to be everything to everyone (talk with the elm guy on twitter)
+
+## hello world
+ok, time for some code!
+- main is the "core" of the program. this is the simple version
+- model: we define a model type, it can be anything. this is equivalent to a redux store
+	now it's just a string
+- update: like redux reducers, here is where changes are applied to the model
+	aren't doing any updating yet, so it just returns the model
+- view: elm defines dom functions that build a vdom, like react
+	just normal function syntax
+	they all take two list arguments, attributes and children
+elm provides elm-repl, elm-make and elm-reactor
+
+## building an emoji counter
+want to list a bunch of emoji and let voting happen on them
+- going to start just listing emoji
+- model to string list
+- add emojis, show broken page
+- import needed elements: div, ul, li
+- import List
+- fill div with List.map text model
+- actually want it in a ul. should put it in another function for simplicity
+- want to actually see, so import Html.Attributes. style list of tuples
+	import Html.Attributes exposing (..)
+- now we want to do some counting
+	- create emoji type
+	- change model
+	- change display function, toString
+	- add message types, like in redux, we need a type for our changes
+	- import button and onclick
+		import Html.Events exposing (onClick)
+	- update display, then show actions
+	- update update
+	- write emoji decrement / increment
+
+## examples
+https://learningmusic.ableton.com
