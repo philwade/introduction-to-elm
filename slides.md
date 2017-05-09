@@ -13,7 +13,7 @@ controls: true
 
 --
 
-### Ok, What's Elm?
+### Ok, so what is Elm?
 
 * Web development framework
 * Compiles to javascript
@@ -54,10 +54,11 @@ controls: true
 --
 
 ### Basics
+![basics](images/basics.gif)
 
 --
 
-### Basic Values
+### Basic Values & Structures
 
     word : String
 	word = "hello pizza"
@@ -68,19 +69,40 @@ controls: true
 	items : List String
 	items = ["car", "boat", "horse"]
 
+	coords : (Int, Int)
+	coords = (10, 15)
+
+	type alias Coordinates = { x : Int, y : Int }
+	betterCoords : Coordinates
+	betterCoords = { x = 10, y = 15 }
+
+	updatedCoords = { betterCoords | x = 15 }
+
 --
 
-### More things
+### Functions
 
-	tuple
+	add : Int -> Int -> Int
+	add a b = a + b
 
-	record
-
-	function
+	addResults : (Int -> Int -> Int) -> Int -> Int -> Int
+	addResults todo a b = (todo a b) + (todo a b)
 
 --
+### Flow control
+    if number > 0 then "positive" else "negative or zero"
 
+	case name of
+		"Jerry" -> "Seinfeld"
+		"Joey" -> "Friends"
+		_ -> "I don't know"
+--
 ### Deconstruction and pattern matching
 
 --
 ### The Elm Architecture
+* Single purpose
+* Opinionated
+
+--
+### Hello World
