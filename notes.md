@@ -93,5 +93,13 @@ want to list a bunch of emoji and let voting happen on them
 	- write emoji decrement / increment
 - if time, refactor increment / decrement
 
+## web stuff
+ok, that's cool but what about web requests so we can make real applications
+emoji api: https://ranmoji.herokuapp.com/emojis/api/v.1.0/
+add types, add cases
+write out http functions
+    -  Http.send AddEmoji (Http.get url decodeEmoji)
+    - Decode.at ["emoji"] Decode.string
+
 ## examples
 https://learningmusic.ableton.com
