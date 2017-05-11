@@ -67,7 +67,7 @@ type alias Emoji = { value : String , count : Int }
 
 getRandomEmoji : Cmd Msg
 getRandomEmoji = let
-                     url = "https://ranmoji.herokuapp.com/emojis/api/v.1.0/"
+                     url = "http://localhost:3000"
                  in
                     Http.send AddEmoji (Http.get url decodeEmoji)
 
