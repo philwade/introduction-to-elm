@@ -97,9 +97,13 @@ want to list a bunch of emoji and let voting happen on them
 ok, that's cool but what about web requests so we can make real applications
 emoji api: https://ranmoji.herokuapp.com/emojis/api/v.1.0/
 add types, add cases
+commands are another way of saying do something, like a msg
 write out http functions
-    -  Http.send AddEmoji (Http.get url decodeEmoji)
+    - Http.send AddEmoji (Http.get url decodeEmoji)
     - Decode.at ["emoji"] Decode.string
+
+## advanced / not covered
+subscriptions for things on an interval or websocket, like commands but different
 
 ## examples
 https://learningmusic.ableton.com

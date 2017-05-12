@@ -123,3 +123,8 @@ controls: true
 ### Demo time!
 
 ![demo](images/demo.gif)
+
+--
+### Advanced things
+- subscriptions
+- advanced architecture
