@@ -50,6 +50,7 @@ controls: true
 * You like writing in a functional style
 * You are into shared state containers
 * Refactoring rules
+* Insight into modern web patterns
 
 --
 
@@ -88,7 +89,7 @@ controls: true
 	add a b = a + b
 
 	addResults : (Int -> Int -> Int) -> Int -> Int -> Int
-	addResults todo a b = (todo a b) + (todo a b)
+	addResults todo a b = (add a b) + (add a b)
 
 --
 ### Flow control
@@ -100,12 +101,13 @@ controls: true
 		_ -> "I don't know"
 --
 ### Deconstruction and pattern matching
-   pair : (Boolean, Boolean)
-   pair = (True, False)
 
-   or : (Boolean, Boolean) -> Boolean
-   or pair =
-   		case pair of
+	pair : (Boolean, Boolean)
+	pair = (True, False)
+
+	or : (Boolean, Boolean) -> Boolean
+	or pair =
+		case pair of
 			(True, True) -> True
 			(True, _) -> True
 			(_, True) -> True
@@ -125,6 +127,11 @@ controls: true
 ![demo](images/demo.gif)
 
 --
-### Advanced things
+### Other stuff
 - subscriptions
-- advanced architecture
+- ports
+
+--
+### Examples
+- https://learningmusic.ableton.com
+- https://github.com/rtfeldman/elm-spa-example
