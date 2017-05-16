@@ -89,7 +89,7 @@ controls: true
 	add a b = a + b
 
 	addResults : (Int -> Int -> Int) -> Int -> Int -> Int
-	addResults todo a b = (add a b) + (add a b)
+	addResults todo a b = (todo a b) + (todo a b)
 
 --
 ### Flow control
