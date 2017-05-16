@@ -1,4 +1,4 @@
-title: "Elm: A brief introduction"
+title: "Elm: Zen and the Art of UI Programming"
 author:
   name: Phil
   twitter: phil_wade
@@ -9,7 +9,7 @@ controls: true
 --
 
 # Elm 🌳
-### Zen and the art of ui programming
+### Zen and the Art of UI Programming
 
 --
 
