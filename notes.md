@@ -1,15 +1,42 @@
 # What is it
 like react or angular, V in MVC
-if you've used redux, it follows the store/action/reactive pattern (came from elm)
+if you've used redux, it follows the store/action/reactive render pattern (came from elm)
 haskell/ml like syntax, not quite haskell (type classes)
-currently 0.18, used by a couple smaller companies as part of their code base
+currently 0.18, used by a couple smaller companies as part of their code base, carfax, noredink, ableton, microsoft (on github)
 
 # what we're going to talk about
+functional programming basics
+  - it's a complex topic but the things you need to be effective are relatively simple
 basic syntax
 structure of an application and simple uses
 skipping some advanced topics
 
+# Functional programming
+
+## what is it
+	- no one definition
+	- first class functions
+	- some things that are generally part of it
+
+## what most people mean (give or take)
+	- math functions have no side effects, same input, same output, do not change state, referentially transparent, "honest"
+	- immutability plays into this, things don't change. need to change something? new object
+	- side effects are avoided, but are made explicit (CQS)
+	- type system encodes application rules (applies less to C#)
+	- things you don't need to worry about: monads, monoids, functors, endofunctors, etc
+	- popular in academic circles years ago, react, redux, c# are gateway drugs
+
+## how is this better than OOP
+	- makes code more explicit, declarative, and readable
+  - being explicit about side effects prevents weird states
+	- tests are actually fun
+	- a strong type system makes code more safe, less bugs, some states are impossible to get into
+	- thread safety increasingly important
+	- might be less readable if you aren't used to it, makes things more verbose generally
+
+
 # Why do you care
+- already know javascript
 
 ## speed
 haskell compiler optimizes away your bad decisions
@@ -27,7 +54,6 @@ virtual dom
 shared state - redux, flux
 static typing and referential transparency makes refactoring what you've written easy
 even if you don't plan on writing it, it's relevant to react, redux and what's happening in the ui dev world
-
 
 ## basics
 let's talk through some of the syntax concepts first
@@ -48,6 +74,12 @@ functions are themselves values that you can pass to other functions
 if is as expected, but the else is required
 case should also be familiar, but we need to match *every* value
 underscore for values we don't really care about
+
+## more advanced types
+we know about normal types, people see types think they understand but often don't fully grasp the power of the type system (css encoded type system!)
+complex type system lets you encode more than simple info
+makes functions more explicit
+allows the compiler to cover your butt
 
 ## deconstruction and pattern matching
 make declarative programming easier

@@ -35,5 +35,19 @@ or pair =
         (_, True) -> True
         (_, _) -> False
 
+type alias Person = { name: String, age: Int }
 person = { name = "Joe", age = 50 }
+
+isAdult : Person -> Bool
 isAdult { age } = age > 18
+
+type FileOpenType = Read | Write | ReadWrite
+type alias FileName = String
+type alias FileHandle = String
+
+openFile : FileName -> FileOpenType -> FileHandle
+openFile name openType =
+    case openType of
+        Read -> name ++ "read"
+        Write -> name ++ "write"
+        ReadWrite -> name ++ "readwrite"

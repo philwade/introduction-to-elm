@@ -1,4 +1,4 @@
-title: "Elm: Zen and the Art of UI Programming"
+title: "Elm: Functional Programming and the Zen of UI programming"
 author:
   name: Phil
   twitter: phil_wade
@@ -9,16 +9,38 @@ controls: true
 --
 
 # Elm 🌳
-### Zen and the Art of UI Programming
+### Functional Programming and the Zen of UI programming
 
 --
 
 ### Ok, so what is Elm?
 
+![elmo](images/elmo.gif)
+
+--
+
+### No, really
+
 * Web development framework
 * Compiles to javascript
 * Pure, Functional, Strongly typed
 * Still in beta, used in production
+
+--
+
+### Functional Programming
+
+* There isn't really a single definition
+* First class functions
+* A few things most people mean
+
+--
+
+### How is this better than OOP?
+
+--
+
+![bonsai](images/bonsai.jpg)
 
 --
 
@@ -100,6 +122,24 @@ controls: true
 		"Joey" -> "Friends"
 		_ -> "I don't know"
 --
+
+### More advanced types
+
+    type FileOpenType = Read | Write | ReadWrite
+    type alias FileName = String
+    type alias FileHandle = String
+
+    openFile : FileName -> FileOpenType -> FileHandle
+    openFile name openType =
+        case openType of
+            Read -> name ++ "read"
+            Write -> name ++ "write"
+            ReadWrite -> name ++ "readwrite"
+vs
+
+    badOpen : String -> String -> String
+
+--
 ### Deconstruction and pattern matching
 
 	pair : (Boolean, Boolean)
@@ -114,6 +154,8 @@ controls: true
 			(_, _) -> False
 
 	person = { name = "Joe", age = 50 }
+
+  isAdult : Person -> Boolean
 	isAdult { age } = age > 18
 
 --
