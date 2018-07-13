@@ -1,15 +1,15 @@
-title: "Elm: Functional Programming and the Zen of UI programming"
+title: "Elm: Functional Programming and the Zen of UI"
 author:
   name: Phil
   twitter: phil_wade
   url: philwade.org
 output: index.html
-controls: true
+controls: false
 
 --
 
 # Elm 🌳
-### Functional Programming and the Zen of UI programming
+### Functional Programming and the Zen of UI
 
 --
 
@@ -23,7 +23,7 @@ controls: true
 
 * Web development framework
 * Compiles to javascript
-* Pure, Functional, Strongly typed
+* Pure, functional, strongly typed
 * Still in beta, used in production
 
 --
@@ -115,15 +115,24 @@ controls: true
 
 --
 ### Flow control
-    if number > 0 then "positive" else "negative or zero"
+    isPositive : Int -> Bool
+    isPositive number =
+        if number > 0 then True else False
 
-	case name of
-		"Jerry" -> "Seinfeld"
-		"Joey" -> "Friends"
-		_ -> "I don't know"
+    ninetiesShow : String -> String
+    ninetiesShow name =
+        case name of
+          "Jerry" -> "Seinfeld"
+          "Joey" -> "Friends"
+          _ -> "I don't know"
+
 --
 
 ### More advanced types
+
+    badOpenFile : String -> String -> String
+
+vs
 
     type FileOpenType = Read | Write | ReadWrite
     type alias FileName = String
@@ -135,9 +144,7 @@ controls: true
             Read -> name ++ "read"
             Write -> name ++ "write"
             ReadWrite -> name ++ "readwrite"
-vs
 
-    badOpen : String -> String -> String
 
 --
 ### Deconstruction and pattern matching
@@ -155,7 +162,7 @@ vs
 
 	person = { name = "Joe", age = 50 }
 
-  isAdult : Person -> Boolean
+	isAdult : Person -> Boolean
 	isAdult { age } = age > 18
 
 --
@@ -169,10 +176,7 @@ vs
 ![demo](images/demo.gif)
 
 --
-### Other stuff
-- subscriptions
-- ports
-
+### Questions?
 --
 ### Examples
 - https://learningmusic.ableton.com

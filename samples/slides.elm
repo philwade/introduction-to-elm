@@ -51,3 +51,14 @@ openFile name openType =
         Read -> name ++ "read"
         Write -> name ++ "write"
         ReadWrite -> name ++ "readwrite"
+
+isPositive : Int -> Bool
+isPositive number =
+    if number > 0 then True else False
+
+ninetiesShow : String -> String
+ninetiesShow name =
+    case name of
+      "Jerry" -> "Seinfeld"
+      "Joey" -> "Friends"
+      _ -> "I don't know"

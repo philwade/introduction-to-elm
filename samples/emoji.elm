@@ -7,6 +7,8 @@ import List
 main = Html.beginnerProgram { model = model, view = view, update = update }
 
 
+type alias Emoji = { value : String , count : Int }
+
 -- MODEL
 
 type alias Model = List Emoji
@@ -14,6 +16,22 @@ type alias Model = List Emoji
 model : Model
 model = [ Emoji "🍕" 0, Emoji "😂" 0, Emoji "💯" 0 ]
 
+
+-- VIEW
+
+view : Model -> Html Msg
+view model =
+  div [ style [("font-size", "50px")] ] [
+            ul [] (List.map emojiDisplay model)
+         ]
+
+emojiDisplay : Emoji -> Html Msg
+emojiDisplay emoji =
+    li [] [ text emoji.value
+          , text ("Count: " ++ (toString emoji.count))
+          , button [ onClick (Increment emoji.value) ] [ text "+" ]
+          , button [ onClick (Decrement emoji.value) ] [ text "-" ]
+          ]
 
 -- UPDATE
 
@@ -37,20 +55,3 @@ match modifier value emoji =
         { emoji | count = modifier emoji.count }
     else
         emoji
--- VIEW
-
-view : Model -> Html Msg
-view model =
-  div [ style [("font-size", "50px")] ] [
-            ul [] (List.map emojiDisplay model)
-         ]
-
-emojiDisplay : Emoji -> Html Msg
-emojiDisplay emoji =
-    li [] [ text emoji.value
-          , text ("Count: " ++ (toString emoji.count))
-          , button [ onClick (Increment emoji.value) ] [ text "+" ]
-          , button [ onClick (Decrement emoji.value) ] [ text "-" ]
-          ]
-
-type alias Emoji = { value : String , count : Int }
