@@ -149,16 +149,17 @@ vs
 --
 ### Deconstruction and pattern matching
 
-	pair : (Boolean, Boolean)
-	pair = (True, False)
+    type alias Pair = (Bool, Bool)
 
-	or : (Boolean, Boolean) -> Boolean
-	or pair =
-		case pair of
-			(True, True) -> True
-			(True, _) -> True
-			(_, True) -> True
-			(_, _) -> False
+    pair : Pair
+    pair = (True, False)
+
+    or : Pair -> Bool
+    or pair =
+        case pair of
+            (True, _) -> True
+            (_, True) -> True
+            (_, _) -> False
 
 	person = { name = "Joe", age = 50 }
 

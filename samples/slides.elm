@@ -24,13 +24,14 @@ add a b = a + b
 addResults : (Int -> Int -> Int) -> Int -> Int -> Int
 addResults todo a b = (todo a b) + (todo a b)
 
-pair : (Bool, Bool)
+type alias Pair = (Bool, Bool)
+
+pair : Pair
 pair = (True, False)
 
-or : (Bool, Bool) -> Bool
+or : Pair -> Bool
 or pair =
     case pair of
-        (True, True) -> True
         (True, _) -> True
         (_, True) -> True
         (_, _) -> False
