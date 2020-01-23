@@ -1,4 +1,4 @@
-title: "Elm: Functional Programming and the Zen of UI"
+title: "Elm: Let's build a UI"
 author:
   name: Phil
   twitter: phil_wade
@@ -9,70 +9,32 @@ controls: false
 --
 
 # Elm 🌳
-### Functional Programming and the Zen of UI
 
 --
 
 ### Ok, so what is Elm?
 
-![elmo](images/elmo.gif)
-
---
-
-### No, really
-
 * Web development framework
 * Compiles to javascript
 * Pure, functional, strongly typed
-* Still in beta, used in production
 
 --
 
-### Functional Programming
+### Functional?
 
-* There isn't really a single definition
+* There isn't an agreed upon definition
 * First class functions
-* A few things most people mean
-
---
-
-### How is this better than OOP?
-
---
-
-![bonsai](images/bonsai.jpg)
+* Immutability/referential transparency
+* Side effects handled specially
+* Advanced type system
 
 --
 
 ### Why do you care?
-![why](images/why.gif)
-
---
-
-## It's fast
-
-![speed comparison](images/speed.png)
-
---
-
-### No Errors
-
-* Strong typing
-* Helpful compiler
-* Truly semantic versioning
-
---
-
-### It's fun!
-![fun](images/fun.gif)
-
---
-
-### For certain definitions of "Fun"
-* You like writing in a functional style
-* You are into shared state containers
-* Refactoring rules
-* Insight into modern web patterns
+* No runtime errors
+* Fast
+* Small
+* Fun (for certain values of fun)
 
 --
 
@@ -115,6 +77,14 @@ controls: false
 
 --
 ### Flow control
+    addResults : (Int -> Int -> Int) -> Int -> Int -> Int
+    addResults todo a b =
+      let
+        first = todo a b
+        second = todo a b
+      in
+        first + second
+
     isPositive : Int -> Bool
     isPositive number =
         if number > 0 then True else False
@@ -125,26 +95,6 @@ controls: false
           "Jerry" -> "Seinfeld"
           "Joey" -> "Friends"
           _ -> "I don't know"
-
---
-
-### More advanced types
-
-    badOpenFile : String -> String -> String
-
-vs
-
-    type FileOpenType = Read | Write | ReadWrite
-    type alias FileName = String
-    type alias FileHandle = String
-
-    openFile : FileName -> FileOpenType -> FileHandle
-    openFile name openType =
-        case openType of
-            Read -> name ++ "read"
-            Write -> name ++ "write"
-            ReadWrite -> name ++ "readwrite"
-
 
 --
 ### Deconstruction and pattern matching
@@ -165,6 +115,37 @@ vs
 
 	isAdult : Person -> Boolean
 	isAdult { age } = age > 18
+--
+
+### Advanced types
+
+    List.head : List a -> Maybe a
+
+    headPlusOne : List Int -> Int
+    headPlusOne given =
+      case List.head given of
+        Just number -> number + 1
+        Nothing -> 0
+
+--
+### More advanced types
+
+    badOpenFile : String -> String -> String
+
+vs
+
+    type FileOpenType = Read | Write | ReadWrite
+    type alias FileName = String
+    type alias FileHandle = String
+
+    openFile : FileName -> FileOpenType -> FileHandle
+    openFile name openType =
+        case openType of
+            Read -> name ++ "read"
+            Write -> name ++ "write"
+            ReadWrite -> name ++ "readwrite"
+
+
 
 --
 ### The Elm Architecture
