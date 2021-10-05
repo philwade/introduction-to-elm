@@ -1,15 +1,16 @@
 import Html exposing (Html, h1, text)
+import Browser
 
 
-main = Html.beginnerProgram { model = model, view = view, update = update }
+main = Browser.sandbox { init = init, view = view, update = update }
 
 
 -- MODEL
 
 type alias Model = String
 
-model : Model
-model = "hello world"
+init : Model
+init = "hello world"
 
 
 -- UPDATE
