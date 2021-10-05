@@ -4,15 +4,16 @@ import Html.Events exposing (onClick)
 import Http
 import Json.Decode as Decode
 import List
+import Browser
 
-main = Html.program { init = init, view = view, update = update, subscriptions = subscriptions }
+main = Browser.element { init = init, view = view, update = update, subscriptions = subscriptions }
 
 -- MODEL
 
 type alias Model = List Emoji
 
-init : (Model, Cmd Msg)
-init = ([ Emoji "🍕" 0, Emoji "😂" 0, Emoji "💯" 0 ] , Cmd.none)
+init : () -> (Model, Cmd Msg)
+init _ = ([ Emoji "🍕" 0, Emoji "😂" 0, Emoji "💯" 0 ] , Cmd.none)
 
 
 -- UPDATE
@@ -47,7 +48,7 @@ match modifier value emoji =
 
 view : Model -> Html Msg
 view model =
-  div [ style [("font-size", "50px")] ]
+  div [ style "font-size" "50px" ]
          [ ul [] (List.map emojiDisplay model)
          , button [ onClick RequestEmoji ] [ text "add more" ]
          ]
@@ -55,7 +56,7 @@ view model =
 emojiDisplay : Emoji -> Html Msg
 emojiDisplay emoji =
     div [] [ li [] [ text emoji.value
-                  , text ("Count: " ++ (toString emoji.count))
+                  , text ("Count: " ++ (String.fromInt emoji.count))
                   , button [ onClick (Increment emoji.value) ] [ text "+" ]
                   , button [ onClick (Decrement emoji.value) ] [ text "-" ]
                   ]
@@ -69,13 +70,14 @@ getRandomEmoji : Cmd Msg
 getRandomEmoji = let
                      url = "http://localhost:3000"
                  in
-                    Http.send AddEmoji (Http.get url decodeEmoji)
+                    Http.get { url = url
+                             , expect = Http.expectJson AddEmoji decodeEmoji
+                              }
 
 decodeEmoji : Decode.Decoder String
 decodeEmoji = Decode.at ["emoji"] Decode.string
 
--- SUBSCRIPTIONS
-
+-- SUBSCRIPTIONS 
 subscriptions : Model -> Sub Msg
 subscriptions model =
   Sub.none

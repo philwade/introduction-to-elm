@@ -4,15 +4,16 @@ import Html.Events exposing (onClick)
 import List
 import Http
 import Json.Decode as Decode
+import Browser
 
-main = Html.program { init = init, view = view, update = update, subscriptions = subscriptions }
+main = Browser.element { init = init, view = view, update = update, subscriptions = subscriptions }
 
 -- MODEL
 
 type alias Model = List Emoji
 
-init : (Model, Cmd Msg)
-init = ([ Emoji "🍕" 0, Emoji "😂" 0, Emoji "💯" 0 ] , Cmd.none)
+init : () -> (Model, Cmd Msg)
+init _ = ([ Emoji "🍕" 0, Emoji "😂" 0, Emoji "💯" 0 ] , Cmd.none)
 
 
 -- UPDATE
@@ -41,14 +42,14 @@ match modifier value emoji =
 
 view : Model -> Html Msg
 view model =
-  div [ style [("font-size", "50px")] ] [
+  div [ style "font-size" "50px" ] [
             ul [] (List.map emojiDisplay model)
          ]
 
 emojiDisplay : Emoji -> Html Msg
 emojiDisplay emoji =
     li [] [ text emoji.value
-          , text ("Count: " ++ (toString emoji.count))
+          , text ("Count: " ++ (String.fromInt emoji.count))
           , button [ onClick (Increment emoji.value) ] [ text "+" ]
           , button [ onClick (Decrement emoji.value) ] [ text "-" ]
           ]

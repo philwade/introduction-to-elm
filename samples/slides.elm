@@ -30,8 +30,8 @@ pair : Pair
 pair = (True, False)
 
 or : Pair -> Bool
-or pair =
-    case pair of
+or p =
+    case p of
         (True, _) -> True
         (_, True) -> True
         (_, _) -> False
